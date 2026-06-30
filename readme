@@ -1,0 +1,33 @@
+# BauldAI
+
+## Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/jimmydahiya/BauldAI.git
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+3. Create a `.env` file
+
+```env
+OPENROUTER_API_KEY=your_api_key
+```
+
+4. Start the server
+
+```bash
+npm start
+```
+
+5. Open your browser
+
+```
+http://localhost:3000
+```
