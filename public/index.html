@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<title>BauldAI — Dark Forest</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ── Forest Scene ── -->
+<div class="jungle-scene" aria-hidden="true">
+  <div class="sky"></div>
+  <div class="sun"></div>
+  <div class="scan-beam"></div>
+  <div class="grid-floor"></div>
+
+  <!-- Distant silhouette trees -->
+  <div class="layer l1" data-depth="0.08">
+    <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="f1" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#0a2a12"/>
+          <stop offset="1" stop-color="#030d07"/>
+        </linearGradient>
+      </defs>
+      <!-- Pine trees distant -->
+      <path fill="url(#f1)" d="
+        M0,380 L0,320 L30,320 L50,260 L70,320 L90,320 L110,200 L130,320 L150,320 L175,150 L200,320
+        L220,320 L250,230 L280,320 L300,320 L340,180 L380,320 L400,320 L430,250 L460,320
+        L500,320 L540,190 L580,320 L600,320 L640,240 L680,320 L700,320 L740,160 L780,320
+        L820,320 L860,210 L900,320 L920,320 L960,170 L1000,320 L1020,320 L1060,230 L1100,320
+        L1140,320 L1180,190 L1220,320 L1240,320 L1280,250 L1320,320 L1360,320 L1400,200 L1440,320
+        L1440,400 L0,400 Z"/>
+      <!-- Glowing tips -->
+      <g fill="#1a4028" opacity=".6">
+        <circle cx="175" cy="148" r="3"/>
+        <circle cx="340" cy="178" r="3"/>
+        <circle cx="540" cy="188" r="3"/>
+        <circle cx="740" cy="158" r="3"/>
+        <circle cx="960" cy="168" r="3"/>
+        <circle cx="1180" cy="188" r="3"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Mid forest layer -->
+  <div class="layer l2" data-depth="0.16">
+    <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="f2" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#0f2b1a"/>
+          <stop offset="1" stop-color="#040e09"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#f2)" d="
+        M0,400 L0,280 L40,280 L70,200 L100,280 L130,280 L170,140 L210,280
+        L240,280 L280,180 L320,280 L350,280 L400,110 L450,280 L480,280
+        L520,200 L560,280 L590,280 L640,130 L690,280 L720,280 L760,180 L800,280
+        L840,280 L890,110 L940,280 L970,280 L1010,170 L1050,280 L1080,280
+        L1130,140 L1180,280 L1210,280 L1260,190 L1310,280 L1340,280 L1390,150 L1440,280
+        L1440,400 Z"/>
+      <!-- Bright canopy glimmers -->
+      <g fill="#2e7d46" opacity=".5">
+        <ellipse cx="400" cy="108" rx="18" ry="8"/>
+        <ellipse cx="640" cy="128" rx="16" ry="7"/>
+        <ellipse cx="890" cy="108" rx="20" ry="8"/>
+        <ellipse cx="1130" cy="138" rx="16" ry="7"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Close forest + undergrowth -->
+  <div class="layer l3" data-depth="0.28">
+    <svg viewBox="0 0 1440 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="f3" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#122a1a"/>
+          <stop offset="1" stop-color="#030d07"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#f3)" d="
+        M0,400 L0,260 L60,260 L100,170 L140,260 L180,260 L230,120 L280,260
+        L320,260 L370,190 L420,260 L460,260 L520,90 L580,260 L620,260
+        L670,160 L720,260 L760,260 L820,100 L880,260 L920,260 L970,170 L1020,260
+        L1060,260 L1120,130 L1180,260 L1220,260 L1270,180 L1320,260 L1360,260 L1400,140 L1440,260
+        L1440,400 Z"/>
+      <!-- Glowing foliage hints -->
+      <g fill="#3eb85c" opacity=".3">
+        <ellipse cx="100" cy="168" rx="22" ry="10"/>
+        <ellipse cx="230" cy="118" rx="28" ry="12"/>
+        <ellipse cx="520" cy="88" rx="32" ry="14"/>
+        <ellipse cx="820" cy="98" rx="30" ry="13"/>
+        <ellipse cx="1120" cy="128" rx="26" ry="11"/>
+        <ellipse cx="1400" cy="138" rx="24" ry="10"/>
+      </g>
+      <!-- Ground mist paths -->
+      <g stroke="#1a4028" stroke-width="1.5" fill="none" opacity=".4">
+        <path d="M0,320 Q200,300 400,320 Q600,340 800,315 Q1000,290 1200,320 Q1350,340 1440,310"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Foreground silhouette -->
+  <div class="layer l4" data-depth="0.42">
+    <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="f4" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#0a1f0e"/>
+          <stop offset="1" stop-color="#020806"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#f4)" d="
+        M0,200 L0,100 L80,100 L120,60 L160,100 L200,100 L240,40 L280,100
+        L340,100 L380,70 L420,100 L460,100 L520,30 L580,100 L640,100
+        L680,50 L720,100 L780,100 L840,25 L900,100 L960,100
+        L1000,55 L1040,100 L1100,100 L1160,40 L1220,100 L1280,100
+        L1320,65 L1360,100 L1400,100 L1420,70 L1440,100
+        L1440,200 Z"/>
+      <!-- Root ground touches with glow -->
+      <g stroke="#2e7d46" stroke-width="1" fill="none" opacity=".5">
+        <path d="M0,140 Q180,130 360,142 Q540,155 720,138 Q900,122 1080,140 Q1260,158 1440,135"/>
+      </g>
+      <!-- Ambient green glow at base -->
+      <ellipse cx="720" cy="190" rx="700" ry="40" fill="rgba(46,125,70,.08)"/>
+    </svg>
+  </div>
+
+  <!-- Fireflies (reduced) -->
+  <div class="fireflies">
+    <span class="fly" style="left:22%; top:58%; animation-delay:0s;"></span>
+    <span class="fly" style="left:58%; top:48%; animation-delay:2.2s;"></span>
+    <span class="fly" style="left:84%; top:55%; animation-delay:4s;"></span>
+  </div>
+</div>
+
+<!-- Header -->
+<header>
+  <a class="logo" href="#">
+    <div class="logo-icon">
+      <svg viewBox="0 0 20 20"><path d="M10 2L2 7v6l8 5 8-5V7L10 2zm0 2.5L16 8l-6 3.5L4 8l6-3.5zM3 9.27l7 4.08v4.65L3 13.92V9.27zm8 8.73v-4.65l7-4.08v4.65l-7 4.08z"/></svg>
+    </div>
+    <span class="logo-name">Bauld<span>AI</span></span>
+  </a>
+  <span class="header-badge">Powered by Gemma</span>
+</header>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside>
+    <!-- Tools accordion -->
+    <div class="tools-accordion-header" id="tools-accordion-toggle" onclick="toggleTools(this)">
+      <span>Tools</span>
+      <svg class="tools-accordion-arrow" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M7 10l5 5 5-5z"/>
+      </svg>
+    </div>
+    <div class="tools-accordion-body" id="tools-accordion-body">
+      <div class="nav-item active" onclick="switchPanel('chat', this)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4C2.9 2 2 2.9 2 4v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+        AI Chat
+      </div>
+      <div class="nav-item" onclick="switchPanel('write', this)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+        Writing Assistant
+      </div>
+      <div class="nav-item" onclick="switchPanel('image', this)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        Image Analyzer
+      </div>
+      <div class="nav-item" onclick="switchPanel('summarize', this)">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"/></svg>
+        Summarizer
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="tools-accordion-header" onclick="toggleAccordion(this, 'info-body')">
+      <span>Info</span>
+      <svg class="tools-accordion-arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+    </div>
+    <div class="tools-accordion-body" id="info-body">
+      <div class="nav-item" style="cursor:default;opacity:.6;font-size:11.5px;flex-direction:column;align-items:flex-start;gap:3px;padding:10px 18px;">
+        <span style="color:#2e6040;">Bauld AI Workspace</span>
+        <span style="color:#1a4028;">GEMMA 4.0</span>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="tools-accordion-header" onclick="toggleAccordion(this, 'about-body')">
+      <span>About</span>
+      <svg class="tools-accordion-arrow" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+    </div>
+    <div class="tools-accordion-body" id="about-body">
+      <div class="sidebar-footer" style="margin-top:0;padding:8px 18px 14px;">
+        My first AI tool using AI..
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main>
+
+    <!-- ── Chat Panel ── -->
+    <div id="panel-chat" class="tool-panel active">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">AI Chat</div>
+          <div class="panel-desc">Ask anything — coding, research, analysis, advice</div>
+        </div>
+        <button class="clear-btn" onclick="clearChat()">Clear chat</button>
+      </div>
+
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-welcome" id="chat-welcome">
+          <div class="wi">🌿</div>
+          <h3>Start a conversation</h3>
+          <p>Ask a question, get an explanation, brainstorm ideas, or request help with any task.</p>
+          <div class="chat-suggestions">
+            <div class="suggestion-chip" onclick="sendSuggestion('Create a modern shopping website with product cards, cart, and checkout section')">🛒 Shopping website</div>
+            <div class="suggestion-chip" onclick="sendSuggestion('Build a responsive portfolio website for a web developer')">💼 Portfolio site</div>
+            <div class="suggestion-chip" onclick="sendSuggestion('Create a landing page for a SaaS product with hero, features, pricing, and CTA')">🚀 SaaS landing page</div>
+            <div class="suggestion-chip" onclick="sendSuggestion('Explain machine learning in simple terms')">🤖 Explain ML</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-input-area">
+        <div class="chat-input-row">
+          <textarea id="chat-input" rows="1" placeholder="Type your message… (Enter to send, Shift+Enter for new line)"></textarea>
+          <button class="send-btn" id="send-btn" onclick="sendChat()">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Writing Panel ── -->
+    <div id="panel-write" class="tool-panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Writing Assistant</div>
+          <div class="panel-desc">Generate, improve, or transform any piece of writing</div>
+        </div>
+        <button class="clear-btn" onclick="clearWriter()">Reset</button>
+      </div>
+
+      <div class="writing-layout">
+        <div class="writing-editor-col">
+          <div class="form-group">
+            <label class="form-label">Task</label>
+            <select class="form-select" id="write-task">
+              <option value="write">Write from scratch</option>
+              <option value="improve">Improve my text</option>
+              <option value="expand">Expand / add detail</option>
+              <option value="shorten">Shorten / condense</option>
+              <option value="translate_formal">Make more formal</option>
+              <option value="translate_casual">Make more casual</option>
+              <option value="bullets">Convert to bullet points</option>
+              <option value="email">Convert to email</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tone</label>
+            <div class="tone-grid">
+              <div class="tone-opt selected" onclick="selectTone(this)">Professional</div>
+              <div class="tone-opt" onclick="selectTone(this)">Friendly</div>
+              <div class="tone-opt" onclick="selectTone(this)">Persuasive</div>
+              <div class="tone-opt" onclick="selectTone(this)">Concise</div>
+              <div class="tone-opt" onclick="selectTone(this)">Empathetic</div>
+              <div class="tone-opt" onclick="selectTone(this)">Authoritative</div>
+            </div>
+          </div>
+
+          <div class="form-group" id="write-prompt-group">
+            <label class="form-label">What to write</label>
+            <input class="form-input" id="write-prompt" placeholder="e.g. A LinkedIn post about the benefits of async work…" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Your text <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#2a5038;font-size:11px;">(optional — provide context or text to edit)</span></label>
+            <textarea class="form-textarea" id="write-text" placeholder="Paste your existing text here…" style="min-height:130px;"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Output length</label>
+            <select class="form-select" id="write-length">
+              <option value="short">Short (1–2 paragraphs)</option>
+              <option value="medium" selected>Medium (3–5 paragraphs)</option>
+              <option value="long">Long (6+ paragraphs)</option>
+            </select>
+          </div>
+
+          <button class="action-btn primary" id="write-btn" onclick="runWriter()">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+            Generate
+          </button>
+        </div>
+
+        <div class="writing-result-col">
+          <div class="result-col-header">Result</div>
+          <div class="result-content" id="write-result">
+            <div class="result-placeholder">
+              <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor"><path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"/></svg>
+              Your generated text will appear here.
+            </div>
+          </div>
+          <div class="copy-row">
+            <button class="action-btn secondary" onclick="copyResult('write-result')" style="font-size:12px;padding:7px 14px;">Copy text</button>
+            <span class="wc-badge" id="write-wc"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Image Analyzer Panel ── -->
+    <div id="panel-image" class="tool-panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Image Analyzer</div>
+          <div class="panel-desc">Upload any image and get AI-powered insights</div>
+        </div>
+        <button class="clear-btn" onclick="clearImage()">Reset</button>
+      </div>
+
+      <div class="image-layout">
+        <div class="image-upload-col">
+          <div class="card">
+            <div class="card-header">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+              Upload Image
+            </div>
+            <div class="card-body">
+              <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragleave="this.classList.remove('drag-over')">
+                <div class="dz-icon">🖼️</div>
+                <h4>Drop image here or click to browse</h4>
+                <p>JPG, PNG, GIF, WebP supported</p>
+              </div>
+              <input type="file" id="file-input" accept="image/*" style="display:none" onchange="handleFileSelect(event)"/>
+              <div id="image-preview-wrap" style="margin-top:14px;">
+                <img id="image-preview" alt="Preview"/>
+                <button class="img-remove" onclick="clearImage()">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">Analysis Type</div>
+            <div class="card-body">
+              <div class="analysis-type-grid">
+                <button class="analysis-type-btn selected" onclick="selectAnalysisType(this, 'describe')">🔍 General Description</button>
+                <button class="analysis-type-btn" onclick="selectAnalysisType(this, 'extract_text')">📝 Extract Text (OCR)</button>
+                <button class="analysis-type-btn" onclick="selectAnalysisType(this, 'sentiment')">😊 Mood & Tone</button>
+                <button class="analysis-type-btn" onclick="selectAnalysisType(this, 'technical')">⚙️ Technical Details</button>
+                <button class="analysis-type-btn" onclick="selectAnalysisType(this, 'accessibility')">♿ Accessibility Check</button>
+                <button class="analysis-type-btn" onclick="selectAnalysisType(this, 'custom')">✏️ Custom Question</button>
+              </div>
+              <div id="custom-question-wrap" style="display:none;margin-top:12px;">
+                <input class="form-input" id="custom-question" placeholder="Ask anything about this image…"/>
+              </div>
+              <button class="action-btn primary" style="width:100%;margin-top:14px;justify-content:center;" id="analyze-btn" onclick="analyzeImage()" disabled>
+                Analyze Image
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-result-col">
+          <div class="card" style="flex:1;display:flex;flex-direction:column;">
+            <div class="card-header">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+              Analysis Result
+            </div>
+            <div class="card-body" style="flex:1;overflow-y:auto;">
+              <div id="analysis-output" class="analysis-output">
+                <span class="analysis-placeholder">Upload an image and select an analysis type to get started.</span>
+              </div>
+            </div>
+            <div style="padding:10px 18px;border-top:1px solid rgba(62,184,92,.12);display:flex;gap:8px;">
+              <button class="action-btn secondary" onclick="copyResult('analysis-output')" style="font-size:12px;padding:7px 14px;">Copy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Summarizer Panel ── -->
+    <div id="panel-summarize" class="tool-panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Summarizer</div>
+          <div class="panel-desc">Condense any document, article, or text into clear insights</div>
+        </div>
+        <button class="clear-btn" onclick="clearSummarizer()">Reset</button>
+      </div>
+
+      <div class="summarizer-layout">
+        <div class="sum-left">
+          <div class="form-group">
+            <label class="form-label">Paste your text</label>
+            <textarea class="form-textarea" id="sum-text" style="min-height:200px;" placeholder="Paste any article, document, report, email, or long text here…"></textarea>
+            <div class="wc-badge" id="sum-wc"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Summary style</label>
+            <div class="tone-grid" style="grid-template-columns:repeat(2,1fr)">
+              <div class="tone-opt selected" onclick="selectSumStyle(this)">📋 Executive brief</div>
+              <div class="tone-opt" onclick="selectSumStyle(this)">🔑 Key points only</div>
+              <div class="tone-opt" onclick="selectSumStyle(this)">📖 Detailed recap</div>
+              <div class="tone-opt" onclick="selectSumStyle(this)">❓ Q&amp;A format</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Focus (optional)</label>
+            <input class="form-input" id="sum-focus" placeholder="e.g. financial impact, risks, action items…"/>
+          </div>
+
+          <button class="action-btn primary" id="sum-btn" onclick="runSummarizer()">Summarize</button>
+        </div>
+
+        <div class="sum-right">
+          <div class="result-col-header" style="padding:14px 20px;">Summary</div>
+          <div class="result-content" id="sum-result">
+            <div class="result-placeholder">
+              <svg width="38" height="38" viewBox="0 0 24 24" fill="currentColor"><path d="M14 17H4v2h10v-2zm6-8H4v2h16V9zM4 15h16v-2H4v2zM4 5v2h16V5H4z"/></svg>
+              Your summary will appear here.
+            </div>
+          </div>
+          <div class="copy-row">
+            <button class="action-btn secondary" onclick="copyResult('sum-result')" style="font-size:12px;padding:7px 14px;">Copy summary</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script src="script.js"></script>
+<script>
+// ── Accordion (Tools / Info / About) ──
+function toggleAccordion(header, bodyId) {
+  header.classList.toggle('open');
+  document.getElementById(bodyId).classList.toggle('open');
+}
+function toggleTools(header) { toggleAccordion(header, 'tools-accordion-body'); }
+
+// Tools open by default
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('tools-accordion-toggle').classList.add('open');
+  document.getElementById('tools-accordion-body').classList.add('open');
+});
+
+// ── Forest Parallax (lightweight) ──
+(function () {
+  const scene  = document.querySelector('.jungle-scene');
+  if (!scene) return;
+  const layers = scene.querySelectorAll('.layer');
+  let tx=0, ty=0, cx=0, cy=0, raf=null;
+  const onMove = (x,y) => {
+    tx = (x/window.innerWidth  - .5);
+    ty = (y/window.innerHeight - .5);
+    if (!raf) raf = requestAnimationFrame(tick);
+  };
+  window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY), {passive:true});
+  function tick() {
+    raf = null;
+    cx += (tx-cx)*0.08;
+    cy += (ty-cy)*0.08;
+    layers.forEach(l => {
+      const d = parseFloat(l.dataset.depth||'0.1');
+      l.style.transform = `translate3d(${(-cx*40*d).toFixed(1)}px,${(-cy*22*d).toFixed(1)}px,0)`;
+    });
+    if (Math.abs(tx-cx) > .002 || Math.abs(ty-cy) > .002) raf = requestAnimationFrame(tick);
+  }
+})();
+
+
+// ── Auto-grow textarea ──
+const chatTA = document.getElementById('chat-input');
+if (chatTA) {
+  chatTA.style.transition = 'height .18s ease';
+  const grow = () => { chatTA.style.height='auto'; chatTA.style.height=Math.min(chatTA.scrollHeight,180)+'px'; };
+  chatTA.addEventListener('input', grow);
+  grow();
+}
+
+// ── Ripple ──
+document.querySelectorAll('.action-btn.primary,.send-btn,.suggestion-chip,.nav-item,.tone-opt,.analysis-type-btn').forEach(btn => {
+  btn.addEventListener('pointerdown', e => {
+    const r = btn.getBoundingClientRect();
+    const rpl = document.createElement('span');
+    rpl.className = 'mj-ripple';
+    const sz = Math.max(r.width, r.height);
+    rpl.style.cssText = `width:${sz}px;height:${sz}px;left:${e.clientX-r.left-sz/2}px;top:${e.clientY-r.top-sz/2}px`;
+    btn.appendChild(rpl);
+    setTimeout(() => rpl.remove(), 600);
+  });
+});
+
+// ── Chat message entrance ──
+const mo = new MutationObserver(muts => {
+  muts.forEach(m => m.addedNodes.forEach(n => {
+    if (n.nodeType===1) n.classList.add('mj-rise');
+  }));
+});
+const cm = document.getElementById('chat-messages');
+if (cm) mo.observe(cm, {childList:true});
+</script>
+</body>
+</html>
