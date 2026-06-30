@@ -39,17 +39,30 @@ app.post("/chat", async (req, res) => {
 
     }
 
-    catch(error){
+   catch(error){
 
-        console.log(error);
+    console.error(error);
 
-        res.status(500).json({
+    if (
+        error.status === 429 &&
+        error.error?.message?.includes("free-models-per-day")
+    ) {
 
-            reply:"Something went wrong."
+        return res.status(429).json({
+
+            reply: "🚫 Today's free AI limit has been reached.\n\nPlease come back tomorrow when the free quota resets."
 
         });
 
     }
+
+    res.status(500).json({
+
+        reply: "⚠️ Something went wrong. Please try again."
+
+    });
+
+}
 
 });
 app.post("/writer", async (req, res) => {
